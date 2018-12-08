@@ -10,3 +10,4 @@ For example, if one looked at the Biomes o' Plenty mod, there is a `src/main/res
 * sounds
 * textures
 * sounds.json
+Additionally, the config directory contains files used to configure the running mod beyond just resources.  Typically `config` contains user-editable files which can potentially be re-written by the game at run-time, while `resources` contains data files which are read-only.  These config files often can only be found after having loaded and run a game with the mod enabled.
