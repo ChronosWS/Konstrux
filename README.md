@@ -6,11 +6,19 @@ Konstrux is a project aimed at producing a Minecraft-like game with the followin
 * A more complete RPG-like character system out of the box
 * An easy-to-use-and-setup server
 
-# Communications
+## Communications
 We have a discord channel here: https://discord.gg/R2Se35Z
 
-## 3rd-Party Technologies which are not included
-Konstrux is currently using the following technologies, which are not contained within this repository.  See the respective `3rd-Party` directories for specific details
-* Unity - building the client requires Unity: https://unity3d.com/
-* VoxelPlay - a voxel engine for Unity: https://assetstore.unity.com/packages/templates/systems/voxel-play-106618
-* 
+## Related Projects
+Konstrux is currently composed of two projects:
+* Konstrux (this repository)
+  * The shared client/server code. Contains the core game mechanics and modding APIs
+* KonstruxClient (closed source)
+  * Contains the Unity client code. Current closed-source because the plugins required are non-redistributable in source form.
+
+## Project Organization
+* `Core`: This is the core code, providing the basic game logic and utilizing the `API` for extensibility
+* `API`: The extensibility framework, providing a modding system which external projects may interface with to extend Konstrux.
+* `Mods`: Sample and default mods, which utilize the extensibility provided by the API and which are loaded into the client or server at runtime.
+* `Server`: The stand-alone server code, which utilizes the `Core` and `API`.
+
