@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Server
+namespace Konstrux.Server
 {
     class Program
     {

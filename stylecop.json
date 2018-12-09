@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "indentation": {
+      "indentationSize": 2
+    },
+    "orderingRules": {
+      "usingDirectivesPlacement": "outsideNamespace"
+    },
+    "documentationRules": {
+      "companyName": "Konstrux",
+      "copyrightText": "Copyright (c) {companyName}. All rights reserved.\nLicensed under the \"{licenseName}\" license.\nSee {licenseFile} file in the project root for full license information.",
+      "variables": {
+        "licenseName": "Creative Commons Attribution-ShareAlike 4.0 International Public License",
+        "licenseFile": "LICENSE"
+      }
+    },
+    "spacingRules": {
+    },
+    "layoutRules": {
+    },
+    "maintainabilityRules": {
+    }
+  }
+}

@@ -1,5 +1,21 @@
 <Project>
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateFullPaths>true</GenerateFullPaths>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>SA1516,SA1600</NoWarn>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <MicrosoftCodeQualityAnalyzersVersion>2.6.2</MicrosoftCodeQualityAnalyzersVersion>
+        <StyleCopAnalyzersVersion>1.0.2</StyleCopAnalyzersVersion>
+        <YamlDotNetVersion>5.3.0</YamlDotNetVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)codeanalysis.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    <ItemGroup>
+        <AdditionalFiles Condition="Exists('$(MSBuildThisFileDirectory)stylecop.json')" Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+    </ItemGroup>
 </Project>
