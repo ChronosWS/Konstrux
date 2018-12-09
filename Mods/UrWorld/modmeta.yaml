@@ -1,0 +1,13 @@
+id: UrWorld
+name: UrWorld
+description: The original Konstrux world
+version: 0.1
+gameVersion: 0.1
+siteUrl: https://github.com/ChronosWS/Konstrux/Mods/UrWorld
+downloadUrl: https://github.com/ChronosWS/Konstrux/Mods/UrWorld
+authors:
+  - name: Cliff Hudson
+    url: https://github.com/ChronosWS
+# logo: 
+# screenshots:
+#   - resource: 

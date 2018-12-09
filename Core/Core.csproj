@@ -3,7 +3,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Api\API.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="$(SerilogVersion)"/>
+    <PackageReference Include="YamlDotNet" Version="$(YamlDotNetVersion)"/>
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>

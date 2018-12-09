@@ -8,6 +8,9 @@
 
     <PropertyGroup>
         <MicrosoftCodeQualityAnalyzersVersion>2.6.2</MicrosoftCodeQualityAnalyzersVersion>
+        <SerilogVersion>2.7.1</SerilogVersion>
+        <SerilogSinksConsoleVersion>3.1.1</SerilogSinksConsoleVersion>
+        <SerilogSinksFileVersion>4.0.0</SerilogSinksFileVersion>
         <StyleCopAnalyzersVersion>1.0.2</StyleCopAnalyzersVersion>
         <YamlDotNetVersion>5.3.0</YamlDotNetVersion>
     </PropertyGroup>

@@ -9,14 +9,15 @@ using System.Collections.Generic;
 
 namespace Konstrux.Api.Registries
 {
-  public interface IRegistry<TData>: IEnumerable<IRegistryEntry<TData>>
+  public interface IRegistry<TData> : 
+    IEnumerable<IRegistryEntry<TData>>, 
+    IReadOnlyDictionary<string, TData>,
+    IReadOnlyCollection<TData>
   {
-    string Name { get; set; }
+    string Name { get; }
     bool TryAdd(string name, TData data, out int id);
     bool TryAdd(string name, int id, TData data);
     bool TryRemove(string name);
     bool TryRemove(int id);
-    TData this[string name] { get; set; }
-    TData this[int id] { get; set; }
   }
 }

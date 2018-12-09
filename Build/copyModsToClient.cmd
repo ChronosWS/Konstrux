@@ -1,0 +1,1 @@
+xcopy /e /y /i /d Mods ..\KonstruxClient\Mods

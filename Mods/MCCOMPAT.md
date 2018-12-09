@@ -1,6 +1,6 @@
 # Minecraft Compatibility notes
 
-Mod assets are designed to be largely Minecraft-compatible for now.  In `Assets/Resources/ModAssets/<modname>` are Minecraft-style resource directories, as follows:
+Mod assets are designed to be largely Minecraft-compatible for now.  In `3rdParty/MinecraftSamples/<modname>` are Minecraft-style resource directories, as follows:
 * `resources/`
     * `advancements`: For the Minecraft achievement system
     * `blockstates`: Description of how blocks are displayed.  Refer to https://minecraft.gamepedia.com/Model for more information.

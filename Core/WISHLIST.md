@@ -1,4 +1,5 @@
 # Core Wishlist
+These are in no particular order...
 
 * Inventory: I'd like inventory to be less micro-management than a Minecraft-type game.
   * Examples of micro-management:
@@ -31,3 +32,7 @@
 
 * "Vanilla" game expressed as a mod:
   * I think ideally the "vanilla" experience is itself a mod built on top of the game engine. We could build out the core experience and use it as a POC for the mod system to help drive requirements.
+
+* Formal mod "store" as part of the game
+  * Allow mod authors to officially post mods, have them downloadable into the game
+  * Monetization? Verification?

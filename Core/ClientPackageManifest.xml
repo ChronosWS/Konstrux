@@ -1,0 +1,5 @@
+<!-- These packages are *assumed to be present* in the Unity deployment. -->
+<StoreArtifacts>
+  <Package  Include="System.Collections.NonGeneric" Version="4.3.0"/>
+  <Package  Include="System.Threading" Version="4.3.0"/>
+</StoreArtifacts>

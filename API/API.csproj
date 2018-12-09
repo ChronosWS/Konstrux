@@ -8,5 +8,6 @@
     <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="$(MicrosoftCodeQualityAnalyzersVersion)"/>
     <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalyzersVersion)"/>
     <PackageReference Include="YamlDotNet" Version="$(YamlDotNetVersion)"/>
+    <PackageReference Include="Serilog" Version="$(SerilogVersion)"/>
   </ItemGroup>
 </Project>

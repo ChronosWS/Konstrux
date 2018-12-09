@@ -1,32 +1,77 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build Konstrux.sln",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Konstrux.sln"
-            ],
-            "problemMatcher": "$msCompile",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "Test Konstrux.sln",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "test",
-                "${workspaceFolder}/Konstrux.sln"
-            ],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/Konstrux.sln"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Publish Core to Client",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "-o", "${workspaceFolder}/../KonstruxClient/Assets/3rd-Party/Konstrux",
+        "--manifest", "${workspaceFolder}/Core/ClientPackageManifest.xml",
+        "${workspaceFolder}/Core/Core.csproj"
+      ],
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Trim Extra Client Files",
+      "command": "${workspaceFolder}/Build/trimClient.sh",
+      "windows": {
+        "command": "${workspaceFolder}/Build/trimClient.cmd"
+      },
+      "type": "shell",
+      "args": [],
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Build and Deploy to Client",
+      "dependsOn": [
+        "Build",
+        "Publish Core to Client",
+        "Trim Extra Client Files"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Copy Mods to Client",
+      "command": "${workspaceFolder}/Build/copyModsToClient.sh",
+      "windows": {
+        "command": "${workspaceFolder}/Build/copyModsToClient.cmd"
+      },
+      "type": "shell",
+      "args": [],
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Test Konstrux.sln",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "test",
+        "${workspaceFolder}/Konstrux.sln"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
 }
