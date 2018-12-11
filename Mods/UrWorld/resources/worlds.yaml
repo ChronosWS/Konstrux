@@ -1,0 +1,30 @@
+- name: Earth
+  biomes:
+    - grassland
+    - bare
+    - desert
+    - forest
+    - rainforest
+    - shrubland
+    - snow
+    - taiga
+    - tundra
+    - savannah
+  bedrockBlock: bedrock
+  sky:
+    clouds:
+      cloudBlock: cloud
+      cloudCoverage: 110
+      cloudAltitude: 150
+    skybox:
+      shader: ":earth"
+      cubemapNightTexture: ""
+      cubemapDayTexture: ""
+    skyTint: "#8580FF"
+    dayCycleSpeed: 0
+    azimuth: 175
+  terrainGenerator: ":terrainDefault"
+  detailGenerators:
+    - ":cave"
+    - ":village"
+  gravity: -9.8

@@ -1,0 +1,112 @@
+- name: BareDirt
+  sounds:
+    build: buildVoxel
+    footfalls:
+      - footstep_rocks1
+      - footstep_rocks2
+    jump: jump1
+    landing: land1
+    impact: hit_dirt1
+    destroy: gravel_impact3
+  resistance: 20
+- name: BareTop
+  sounds:
+    build: buildVoxel
+    footfalls:
+      - footstep_rocks1
+      - footstep_rocks2
+    jump: jump1
+    landing: land1
+    impact: hit_dirt2
+    destroy: gravel_impact2
+  resistance: 20
+
+- name: DesertDirt
+  sounds:
+    build: buildVoxel
+    footfalls:
+      - footstep_soft1
+      - footstep_rocks2
+    jump: jump1
+    landing: footstep_soft1
+    impact: hit_dirt3
+    destroy: gravel_impact5
+  resistance: 5
+- name: DesertTop
+  sounds:
+    build: buildVoxel
+    footfalls:
+      - footstep_soft1
+    jump: jump1
+    landing: footstep_soft1
+    impact: hit_grass1
+    destroy: gravel_impact5
+  resistance: 5
+
+- name: ForestDirt
+  sounds:
+    build: buildVoxel
+    footfalls:
+      - footstep_grass1
+      - footstep_first1
+    jump: jump1
+    landing: footstep_dirt1
+    impact: hit_dirt2
+    destroy: gravel_impact3
+  resistance: 15
+- name: ForestTop
+  sounds:
+    build: buildVoxel
+    footfalls:
+      - footstep_grass2
+      - footstep_grass1
+    jump: jump1
+    landing: footstep_dirt1
+    impact: hit_wood2
+    destroy: gravel_impact2
+  resistance: 25
+
+- name: Bedrock
+  sounds:
+    impact: hit_hard1
+  resistance: 255
+  canPickup: false
+
+- name: OreGold
+  resistance: 55
+  canPickup: false
+
+- name: OreCoal
+  resistance: 40
+  canPickup: false
+
+- name: ColorfulBush
+  sounds:
+    impact: hit_grass1
+    destroy: hit_grass1
+  resistance: 2
+
+- name: GreenBush
+  sounds:
+    impact: hit_grass1
+    destroy: hit_grass1
+  resistance: 2
+
+- name: GreenBushBig
+  sounds:
+    impact: hit_grass1
+    destroy: hit_grass1
+  resistance: 2
+
+- name: Lava
+  canBeCollected: false
+  height: 14
+  resistancePoints: 45
+  fluid:
+    diveColor: "#B00E0E"
+    spreadEnabled: true
+    spreadDelay: 1
+    spreadDelayRandom: 3
+    drainEnabled: true
+  playerDamage: 1
+  playerDamageDelay: 2

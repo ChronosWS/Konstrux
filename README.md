@@ -17,6 +17,7 @@ Konstrux is currently composed of two projects:
   * Contains the Unity client code. Current closed-source because the plugins required are non-redistributable in source form.
 
 ## Project Organization
+* `Docs`: Design and reference documentation is here. This is a good place to start if you are new to the project.
 * `Core`: This is the core code, providing the basic game logic and utilizing the `API` for extensibility
 * `API`: The extensibility framework, providing a modding system which external projects may interface with to extend Konstrux.
 * `Mods`: Sample and default mods, which utilize the extensibility provided by the API and which are loaded into the client or server at runtime.

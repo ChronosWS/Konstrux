@@ -5,7 +5,7 @@
 // </copyright>
 // Author(s): Cliff Hudson
 
-namespace Konstrux.Api.ModLoader
+namespace Konstrux.Api.Loaders.ModLoader
 {
   public class ModAuthor
   {

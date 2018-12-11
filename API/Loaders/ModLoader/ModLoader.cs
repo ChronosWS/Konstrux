@@ -12,14 +12,14 @@ using Konstrux.Api.Registries;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace Konstrux.Api.ModLoader
+namespace Konstrux.Api.Loaders.ModLoader
 {
   public class ModLoader : IModLoader
   {
     private const string ModMetaFileName = "modmeta.yaml";
     private const string ModsRegistryName = "Mods";
 
-    public async Task LoadModsAsync(string path)
+    public async Task LoadAsync(string path)
     {
       var yamlDeserializer = new DeserializerBuilder()
         .WithNamingConvention(new CamelCaseNamingConvention())
@@ -37,9 +37,9 @@ namespace Konstrux.Api.ModLoader
             {
               var modYaml = await textReader.ReadToEndAsync();
               var modMeta = yamlDeserializer.Deserialize<ModMeta>(modYaml);
-              if (!this.ModRegistry.TryAdd(modMeta.Id, modMeta, out var ignore))
+              if (!this.Registry.TryAdd(modMeta.Name, modMeta, out var ignore))
               {
-                throw new Exception($"Mod {modMeta.Id} already exists in the registry");
+                throw new Exception($"Mod {modMeta.Name} already exists in the registry");
               }
             }
           }
@@ -47,6 +47,6 @@ namespace Konstrux.Api.ModLoader
       }
     }
 
-    public IRegistry<ModMeta> ModRegistry { get; } = Registry<ModMeta>.Create(ModsRegistryName);
+    public IRegistry<ModMeta> Registry { get; } = Registry<ModMeta>.Create(ModsRegistryName);
   }
 }

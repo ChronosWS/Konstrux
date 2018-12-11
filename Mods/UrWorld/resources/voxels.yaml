@@ -1,0 +1,58 @@
+- name: BareDirt
+  textures:
+    all: bare_dirt
+- name: BareTop
+  textures:
+    top: bare_top
+    sides: bare_side
+    bottom: bare_dirt
+
+- name: DesertDirt
+  textures:
+    all: desert_dirt
+- name: DesertTop
+  textures:
+    top: desert_top
+    sides: desert_side
+    bottom: desert_dirt
+
+- name: ForestDirt
+  textures:
+    all: forest_dirt
+- name: ForestTop
+  textures:
+    top: forest_top
+    sides: forest_side
+    bottom: forest_dirt
+
+- name: OreGold
+  textures:
+    all: gold
+- name: OreCoal
+  textures:
+    all: coal
+
+- name: Bedrock
+  textures:
+    all: bedRockTex
+
+- name: ColorfulBush
+  colorVariation: 0.5
+  textures:
+    cross: colorful_bush
+
+- name: GreenBush
+  colorVariation: 0.5
+  textures:
+    cross: green_bush
+
+- name: GreenBushBig
+  colorVariation: 0.5
+  textures:
+    cross: green_bush_big
+
+- name: Lava
+  textures:
+    renderMode: Water
+    all: lavaTex
+
