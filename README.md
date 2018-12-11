@@ -13,7 +13,7 @@ We have a discord channel here: https://discord.gg/R2Se35Z
 Konstrux is currently composed of two projects:
 * Konstrux (this repository)
   * The shared client/server code. Contains the core game mechanics and modding APIs
-* KonstruxClient (closed source)
+* [KonstruxClient](https://github.com/ChronosWS/KonstruxClient) (closed source)
   * Contains the Unity client code. Current closed-source because the plugins required are non-redistributable in source form.
 
 ## Project Organization
