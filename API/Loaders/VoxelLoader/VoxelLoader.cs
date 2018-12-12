@@ -20,5 +20,7 @@ namespace Konstrux.Api.Loaders.VoxelLoader
     public const string ModsRegistryName = "Voxels";
 
     public VoxelLoader() : base(ModsRegistryName) { }
+    public static IVoxelLoader Instance { get; } = new VoxelLoader();
+    public override Task LoadAsync(string path) => LoadMultipleAsync(path);
   }
 }

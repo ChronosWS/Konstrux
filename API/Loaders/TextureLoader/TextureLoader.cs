@@ -16,9 +16,12 @@ namespace Konstrux.Api.Loaders.TextureLoader
 {
   public class TextureLoader : RegistryLoader<TextureMeta>, ITextureLoader
   {
+    public const string ModMetaDirectory = "textures";
     public const string TexturesRegistryName = "Textures";
 
     public TextureLoader() : base(TexturesRegistryName) { }
+
+    public static ITextureLoader Instance { get; } = new TextureLoader();
 
     public override async Task LoadAsync(string path)
     {
@@ -38,7 +41,7 @@ namespace Konstrux.Api.Loaders.TextureLoader
 
           if (String.Equals(Path.GetExtension(textureFile), "yaml", StringComparison.OrdinalIgnoreCase))
           {
-            textureMeta.Parameters = await this.LoadFromSingleFileAsync<TextureParameters>(textureFile);
+            textureMeta.Parameters = await this.LoadYamlFileAsync<TextureParameters>(textureFile);
           }
           else
           {

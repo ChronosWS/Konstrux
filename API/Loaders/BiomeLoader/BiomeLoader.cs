@@ -20,5 +20,7 @@ namespace Konstrux.Api.Loaders.BiomeLoader
     public const string ModsRegistryName = "Biomes";
 
     public BiomeLoader() : base(ModsRegistryName) { }
+    public static IBiomeLoader Instance { get; } = new BiomeLoader();
+    public override Task LoadAsync(string path) => LoadMultipleAsync(path);
   }
 }

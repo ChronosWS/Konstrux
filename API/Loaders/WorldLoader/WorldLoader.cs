@@ -20,5 +20,7 @@ namespace Konstrux.Api.Loaders.WorldLoader
     public const string ModsRegistryName = "Worlds";
 
     public WorldLoader() : base(ModsRegistryName) { }
+    public static IWorldLoader Instance { get; } = new WorldLoader();
+    public override Task LoadAsync(string path) => LoadMultipleAsync(path);
   }
 }

@@ -7,6 +7,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Konstrux.Api.Common;
 using Konstrux.Api.Registries;
@@ -17,18 +18,18 @@ namespace Konstrux.Api.Loaders
 {
   public class RegistryLoader<TData> : IRegistryLoader<TData> where TData : INamed
   {
-    protected readonly IDeserializer yamlDeserializer = new DeserializerBuilder()
+    protected static readonly IDeserializer yamlDeserializer = new DeserializerBuilder()
         .WithNamingConvention(new CamelCaseNamingConvention())
         .Build();
 
-    public virtual Task LoadAsync(string path) => LoadFromYamlAsync(path);
+    public virtual Task LoadAsync(string path) => LoadSingleAsync(path);
 
     protected RegistryLoader(string name)
     {
-      this.Registry = Registry<TData>.Create(name);
+      this.Registry = Registries.Registry.Get<TData>(name);
     }
 
-    protected async Task LoadFromYamlAsync(string path)
+    protected async Task<TData[]> LoadMultipleAsync(string path)
     {
       if (File.Exists(path))
       {
@@ -44,11 +45,36 @@ namespace Konstrux.Api.Loaders
               throw new Exception($"Mod {meta.Name} already exists in the registry");
             }
           }
+
+          return metas;
         }
       }
+
+      return null;
     }
 
-    protected async Task<TMeta> LoadFromSingleFileAsync<TMeta>(string path)
+    protected async Task<TData> LoadSingleAsync(string path)
+    {
+      if (File.Exists(path))
+      {
+        using (var file = File.OpenRead(path))
+        using (var textReader = new StreamReader(file))
+        {
+          var yaml = await textReader.ReadToEndAsync();
+          var meta = yamlDeserializer.Deserialize<TData>(yaml);
+          if (!this.Registry.TryAdd(meta.Name, meta, out var ignore))
+          {
+            throw new Exception($"Mod {meta.Name} already exists in the registry");
+          }
+
+          return meta;
+        }
+      }
+
+      return default(TData);
+    }
+
+    protected async Task<TMeta> LoadYamlFileAsync<TMeta>(string path)
     {
       using (var file = File.OpenRead(path))
       using (var textReader = new StreamReader(file))

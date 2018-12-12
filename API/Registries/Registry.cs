@@ -12,7 +12,22 @@ using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Registries
 {
-  public class Registry<TData> : IRegistry<TData> where TData: INamed
+  public static class Registry
+  {
+    private static Dictionary<string, object> registries = new Dictionary<string, object>();
+
+    public static IRegistry<TData> Get<TData>(string name) where TData : INamed
+    {
+      if (!registries.TryGetValue(name, out var registry))
+      {
+        registry = Registry<TData>.Create(name);
+        registries.Add(name, registry);
+      }
+      return (IRegistry<TData>)registry;
+    }
+  }
+
+  public class Registry<TData> : IRegistry<TData> where TData : INamed
   {
     private class RegistryEntry : IRegistryEntry<TData>
     {
@@ -20,6 +35,8 @@ namespace Konstrux.Api.Registries
       public int Id { get; set; }
       public TData Data { get; set; }
     }
+
+
 
     private Dictionary<string, RegistryEntry> nameMapping = new Dictionary<string, RegistryEntry>();
     private List<RegistryEntry> idMapping = new List<RegistryEntry>();
@@ -36,8 +53,11 @@ namespace Konstrux.Api.Registries
 
     public int Count => throw new System.NotImplementedException();
 
-    public static IRegistry<TData> Create(string name) {
-      return new Registry<TData> {
+
+    public static IRegistry<TData> Create(string name)
+    {
+      return new Registry<TData>
+      {
         Name = name
       };
     }
@@ -86,7 +106,8 @@ namespace Konstrux.Api.Registries
 
     public bool TryGetValue(string key, out TData value)
     {
-      if(this.nameMapping.TryGetValue(key, out var entry)) {
+      if (this.nameMapping.TryGetValue(key, out var entry))
+      {
         value = entry.Data;
         return true;
       }
@@ -97,14 +118,16 @@ namespace Konstrux.Api.Registries
 
     IEnumerator<KeyValuePair<string, TData>> IEnumerable<KeyValuePair<string, TData>>.GetEnumerator()
     {
-      foreach(var entry in this.nameMapping) {
+      foreach (var entry in this.nameMapping)
+      {
         yield return new KeyValuePair<string, TData>(entry.Key, entry.Value.Data);
       }
     }
 
     IEnumerator<TData> IEnumerable<TData>.GetEnumerator()
     {
-      foreach(var data in this.idMapping.Select(p => p.Data)) {
+      foreach (var data in this.idMapping.Select(p => p.Data))
+      {
         yield return data;
       }
     }

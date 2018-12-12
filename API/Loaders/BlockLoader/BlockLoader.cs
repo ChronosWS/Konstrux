@@ -20,5 +20,7 @@ namespace Konstrux.Api.Loaders.BlockLoader
     public const string ModsRegistryName = "Blocks";
 
     public BlockLoader() : base(ModsRegistryName) { }
+    public static IBlockLoader Instance { get; } = new BlockLoader();
+    public override Task LoadAsync(string path) => LoadMultipleAsync(path);
   }
 }

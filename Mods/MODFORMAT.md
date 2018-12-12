@@ -3,19 +3,20 @@
 Mods should be placed in the Mods folder (this folder) each in their own directory. Each mod must contain at least one file, `modmeta.yaml` describing the mod itself.  All other parts of the mod described below are optional except for this file.
 
 * `Mods\`
-  * `modmeta.yaml` - The mod metadata, including name, version, author, etc...
-  * `signature` - The mod's signature file, verifying the mod is official (optional)
-  * `resources/` - Mod resources (assets) are located here
-    * `biomes.yaml` - Biome definitions
-    * `blocks.yaml` - Block definitions
-    * `voxels.yaml` - Voxel definitions
-    * `items.yaml` - Item definitions
-    * `worlds.yaml` - World definitions
-    * `sounds.yaml` - Sound definitions
-    * `models/` - Model definitions
-    * `textures/` - Texture files
-    * `audio/` - Audio files
-    * `loc/` - Localization files
+  * `mod name\`
+    * `modmeta.yaml` - The mod metadata, including name, version, author, etc...
+    * `signature` - The mod's signature file, verifying the mod is official (optional)
+    * `resources/` - Mod resources (assets) are located here
+      * `biomes.yaml` - Biome definitions
+      * `blocks.yaml` - Block definitions
+      * `voxels.yaml` - Voxel definitions
+      * `items.yaml` - Item definitions
+      * `worlds.yaml` - World definitions
+      * `sounds.yaml` - Sound definitions
+      * `models/` - Model definitions
+      * `textures/` - Texture files
+      * `audio/` - Audio files
+      * `loc/` - Localization files
 
 # Mod file details
 
@@ -24,7 +25,7 @@ Contains the mod metadata, as follows:
 
 ```
 mod:
-  id: mod unique name
+  id: mod unique name (must match mod directory if deploying manually)
   name: mod display name or localized string reference (optional, defaults to id)
   description: mod description
   version: mod version
