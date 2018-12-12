@@ -13,6 +13,7 @@ namespace Konstrux.Api.Loaders.BlockLoader
   {
     public string Pickup { get; set; }
     public string Build { get; set; }
+    public string[] Footfalls { get; set; }
     public string Jump { get; set; }
     public string Landing { get; set; }
     public string Impact { get; set; }

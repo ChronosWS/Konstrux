@@ -12,7 +12,7 @@ namespace Konstrux.Api.Loaders.WorldLoader
   public class WorldSky
   {
     public WorldClouds Clouds { get; set; }
-    public WorldSkyBox SkyBox { get; set; }
+    public WorldSkybox Skybox { get; set; }
     public string SkyTint { get; set; }
     public float DayCycleSpeed { get; set; }
     public int Azimuth { get; set; }

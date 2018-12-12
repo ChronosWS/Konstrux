@@ -14,17 +14,15 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace Konstrux.Api.Loaders.ModLoader
 {
-  public class ModLoader : IModLoader
+  public class ModLoader : RegistryLoader<ModMeta>, IModLoader
   {
-    private const string ModMetaFileName = "modmeta.yaml";
-    private const string ModsRegistryName = "Mods";
+    public const string ModMetaFileName = "modmeta.yaml";
+    public const string ModsRegistryName = "Mods";
 
-    public async Task LoadAsync(string path)
+    public ModLoader() : base(ModsRegistryName) { }
+
+    public override async Task LoadAsync(string path)
     {
-      var yamlDeserializer = new DeserializerBuilder()
-        .WithNamingConvention(new CamelCaseNamingConvention())
-        .Build();
-
       if (Directory.Exists(path))
       {
         foreach (var modDirectory in Directory.EnumerateDirectories(path))
@@ -32,21 +30,10 @@ namespace Konstrux.Api.Loaders.ModLoader
           var modMetaPath = Path.Combine(modDirectory, ModMetaFileName);
           if (File.Exists(modMetaPath))
           {
-            using (var file = File.OpenRead(modMetaPath))
-            using (var textReader = new StreamReader(file))
-            {
-              var modYaml = await textReader.ReadToEndAsync();
-              var modMeta = yamlDeserializer.Deserialize<ModMeta>(modYaml);
-              if (!this.Registry.TryAdd(modMeta.Name, modMeta, out var ignore))
-              {
-                throw new Exception($"Mod {modMeta.Name} already exists in the registry");
-              }
-            }
+            await base.LoadFromYamlAsync(modMetaPath);
           }
         }
       }
     }
-
-    public IRegistry<ModMeta> Registry { get; } = Registry<ModMeta>.Create(ModsRegistryName);
   }
 }

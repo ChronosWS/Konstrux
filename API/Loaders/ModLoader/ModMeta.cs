@@ -6,10 +6,11 @@
 // Author(s): Cliff Hudson
 
 using System.Collections.Generic;
+using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Loaders.ModLoader
 {
-  public class ModMeta
+  public class ModMeta : INamed
   {
     public string Name { get; set; }
     public string DisplayName { get; set; }

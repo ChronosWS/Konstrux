@@ -6,10 +6,11 @@
 // Author(s): Cliff Hudson
 
 using System.Collections.Generic;
+using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Loaders.WorldLoader
 {
-  public class WorldMeta
+  public class WorldMeta : INamed
   {
     public string Name { get; set; }
     public List<string> Biomes { get; set; }

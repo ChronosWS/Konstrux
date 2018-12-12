@@ -8,10 +8,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Registries
 {
-  public class Registry<TData> : IRegistry<TData>
+  public class Registry<TData> : IRegistry<TData> where TData: INamed
   {
     private class RegistryEntry : IRegistryEntry<TData>
     {

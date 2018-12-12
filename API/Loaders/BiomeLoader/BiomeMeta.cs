@@ -6,10 +6,11 @@
 // Author(s): Cliff Hudson
 
 using System.Collections.Generic;
+using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Loaders.BiomeLoader
 {
-  public class BiomeMeta
+  public class BiomeMeta : INamed
   {
     public string Name { get; set; }
     public string BlockTop { get; set; }

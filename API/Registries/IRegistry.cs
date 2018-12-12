@@ -6,6 +6,7 @@
 // Author(s): Cliff Hudson
 
 using System.Collections.Generic;
+using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Registries
 {
@@ -13,6 +14,7 @@ namespace Konstrux.Api.Registries
     IEnumerable<IRegistryEntry<TData>>, 
     IReadOnlyDictionary<string, TData>,
     IReadOnlyCollection<TData>
+    where TData: INamed
   {
     string Name { get; }
     bool TryAdd(string name, TData data, out int id);

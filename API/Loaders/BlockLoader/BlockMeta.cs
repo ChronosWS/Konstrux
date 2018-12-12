@@ -6,10 +6,11 @@
 // Author(s): Cliff Hudson
 
 using System.Collections.Generic;
+using Konstrux.Api.Common;
 
 namespace Konstrux.Api.Loaders.BlockLoader
 {
-  public class BlockMeta
+  public class BlockMeta : INamed
   {
     public string Name { get; set; }
     public BlockSounds Sounds { get; set; }

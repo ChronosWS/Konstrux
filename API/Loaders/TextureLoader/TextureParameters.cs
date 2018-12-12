@@ -1,4 +1,4 @@
-// <copyright file="VoxelMeta.cs" company="Konstrux">
+// <copyright file="TextureParameters.cs" company="Konstrux">
 // Copyright (c) Konstrux. All rights reserved.
 // Licensed under the "Creative Commons Attribution-ShareAlike 4.0 International Public License" license.
 // See LICENSE file in the project root for full license information.
@@ -8,13 +8,9 @@
 using System.Collections.Generic;
 using Konstrux.Api.Common;
 
-namespace Konstrux.Api.Loaders.VoxelLoader
+namespace Konstrux.Api.Loaders.TextureLoader
 {
-  public class VoxelMeta : INamed
+  public class TextureParameters
   {
-    public string Name { get; set; }
-    public VoxelTextures Textures { get; set; }
-    public float ColorVariation { get; set; }
-    public string TintColor { get; set; }
   }
 }

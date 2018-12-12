@@ -16,5 +16,6 @@ namespace Konstrux.Api.Loaders.VoxelLoader
     public string Top { get; set; }
     public string Sides { get; set; }
     public string Bottom { get; set; }
+    public string Cross { get; set; }
   }
 }

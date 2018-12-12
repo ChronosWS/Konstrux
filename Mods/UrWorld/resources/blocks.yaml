@@ -101,7 +101,7 @@
 - name: Lava
   canBeCollected: false
   height: 14
-  resistancePoints: 45
+  resistance: 45
   fluid:
     diveColor: "#B00E0E"
     spreadEnabled: true
